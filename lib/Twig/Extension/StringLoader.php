@@ -36,9 +36,10 @@ class Twig_Extension_StringLoader extends Twig_Extension
  * {{ include(template_from_string("Hello {{ name }}")) }}
  * </pre>
  *
- * @param Twig_Environment $env      A Twig_Environment instance
- * @param string           $template A template as a string
+ * @param Twig_Environment $env A Twig_Environment instance
+ * @param string $template A template as a string
  *
+ * @throws Exception
  * @return Twig_Template A Twig_Template instance
  */
 function twig_template_from_string(Twig_Environment $env, $template)

@@ -131,7 +131,9 @@ class Twig_Node implements Twig_NodeInterface
     /**
      * Gets an attribute.
      *
-     * @param  string The attribute name
+     * @param $name
+     * @throws LogicException
+     * @internal param \The $string attribute name
      *
      * @return mixed The attribute value
      */
@@ -180,7 +182,9 @@ class Twig_Node implements Twig_NodeInterface
     /**
      * Gets a node by name.
      *
-     * @param  string The node name
+     * @param $name
+     * @throws LogicException
+     * @internal param \The $string node name
      *
      * @return Twig_Node A Twig_Node instance
      */

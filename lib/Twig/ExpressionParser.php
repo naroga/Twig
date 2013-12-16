@@ -453,6 +453,7 @@ class Twig_ExpressionParser
      *
      * @param Boolean $namedArguments Whether to allow named arguments or not
      * @param Boolean $definition Whether we are parsing arguments for a function definition
+     * @throws Twig_Error_Syntax
      * @return \Twig_Node
      */
     public function parseArguments($namedArguments = false, $definition = false)

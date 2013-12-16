@@ -36,6 +36,7 @@ class Twig_NodeVisitor_Optimizer implements Twig_NodeVisitorInterface
      * Constructor.
      *
      * @param integer $optimizers The optimizer mode
+     * @throws InvalidArgumentException
      */
     public function __construct($optimizers = -1)
     {

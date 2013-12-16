@@ -27,6 +27,7 @@ class Twig_TokenParserBroker implements Twig_TokenParserBrokerInterface
      *
      * @param array|Traversable $parsers A Traversable of Twig_TokenParserInterface instances
      * @param array|Traversable $brokers A Traversable of Twig_TokenParserBrokerInterface instances
+     * @throws LogicException
      */
     public function __construct($parsers = array(), $brokers = array())
     {

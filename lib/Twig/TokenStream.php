@@ -52,6 +52,7 @@ class Twig_TokenStream
     /**
      * Sets the pointer to the next token and returns the old one.
      *
+     * @throws Twig_Error_Syntax
      * @return Twig_Token
      */
     public function next()
@@ -66,6 +67,8 @@ class Twig_TokenStream
     /**
      * Tests a token, sets the pointer to the next one and returns it or throws a syntax error.
      *
+     * @param $primary
+     * @param null $secondary
      * @return Twig_Token|null The next token if the condition is true, null otherwise
      */
     public function nextIf($primary, $secondary = null)
@@ -78,6 +81,10 @@ class Twig_TokenStream
     /**
      * Tests a token and returns it or throws a syntax error.
      *
+     * @param $type
+     * @param null $value
+     * @param null $message
+     * @throws Twig_Error_Syntax
      * @return Twig_Token
      */
     public function expect($type, $value = null, $message = null)
@@ -103,6 +110,7 @@ class Twig_TokenStream
      *
      * @param integer $number
      *
+     * @throws Twig_Error_Syntax
      * @return Twig_Token
      */
     public function look($number = 1)
@@ -117,6 +125,8 @@ class Twig_TokenStream
     /**
      * Tests the current token
      *
+     * @param $primary
+     * @param null $secondary
      * @return Boolean
      */
     public function test($primary, $secondary = null)

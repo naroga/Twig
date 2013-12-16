@@ -34,6 +34,7 @@ class Twig_TokenParser_AutoEscape extends Twig_TokenParser
      *
      * @param Twig_Token $token A Twig_Token instance
      *
+     * @throws Twig_Error_Syntax
      * @return Twig_NodeInterface A Twig_NodeInterface instance
      */
     public function parse(Twig_Token $token)

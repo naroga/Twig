@@ -547,11 +547,13 @@ class Twig_Environment
      * Compiles a template source code.
      *
      * @param string $source The template source code
-     * @param string $name   The template name
+     * @param string $name The template name
      *
+     * @throws Exception
+     * @throws Twig_Error
+     * @throws Twig_Error_Syntax
      * @return string The compiled PHP source code
      *
-     * @throws Twig_Error_Syntax When there was an error during tokenizing, parsing or compiling
      */
     public function compileSource($source, $name = null)
     {
@@ -578,6 +580,7 @@ class Twig_Environment
     /**
      * Gets the Loader instance.
      *
+     * @throws LogicException
      * @return Twig_LoaderInterface A Twig_LoaderInterface instance
      */
     public function getLoader()
@@ -638,6 +641,7 @@ class Twig_Environment
      *
      * @param string $name The extension name
      *
+     * @throws Twig_Error_Runtime
      * @return Twig_ExtensionInterface A Twig_ExtensionInterface instance
      */
     public function getExtension($name)
@@ -653,6 +657,7 @@ class Twig_Environment
      * Registers an extension.
      *
      * @param Twig_ExtensionInterface $extension A Twig_ExtensionInterface instance
+     * @throws LogicException
      */
     public function addExtension(Twig_ExtensionInterface $extension)
     {
@@ -670,6 +675,7 @@ class Twig_Environment
      *
      * @param string $name The extension name
      *
+     * @throws LogicException
      * @deprecated since 1.12 (to be removed in 2.0)
      */
     public function removeExtension($name)
@@ -707,6 +713,7 @@ class Twig_Environment
      * Registers a Token Parser.
      *
      * @param Twig_TokenParserInterface $parser A Twig_TokenParserInterface instance
+     * @throws LogicException
      */
     public function addTokenParser(Twig_TokenParserInterface $parser)
     {
@@ -754,6 +761,7 @@ class Twig_Environment
      * Registers a Node Visitor.
      *
      * @param Twig_NodeVisitorInterface $visitor A Twig_NodeVisitorInterface instance
+     * @throws LogicException
      */
     public function addNodeVisitor(Twig_NodeVisitorInterface $visitor)
     {
@@ -781,8 +789,9 @@ class Twig_Environment
     /**
      * Registers a Filter.
      *
-     * @param string|Twig_SimpleFilter               $name   The filter name or a Twig_SimpleFilter instance
+     * @param string|Twig_SimpleFilter $name The filter name or a Twig_SimpleFilter instance
      * @param Twig_FilterInterface|Twig_SimpleFilter $filter A Twig_FilterInterface instance or a Twig_SimpleFilter instance
+     * @throws LogicException
      */
     public function addFilter($name, $filter = null)
     {
@@ -870,8 +879,9 @@ class Twig_Environment
     /**
      * Registers a Test.
      *
-     * @param string|Twig_SimpleTest             $name The test name or a Twig_SimpleTest instance
+     * @param string|Twig_SimpleTest $name The test name or a Twig_SimpleTest instance
      * @param Twig_TestInterface|Twig_SimpleTest $test A Twig_TestInterface instance or a Twig_SimpleTest instance
+     * @throws LogicException
      */
     public function addTest($name, $test = null)
     {
@@ -928,8 +938,9 @@ class Twig_Environment
     /**
      * Registers a Function.
      *
-     * @param string|Twig_SimpleFunction                 $name     The function name or a Twig_SimpleFunction instance
+     * @param string|Twig_SimpleFunction $name The function name or a Twig_SimpleFunction instance
      * @param Twig_FunctionInterface|Twig_SimpleFunction $function A Twig_FunctionInterface instance or a Twig_SimpleFunction instance
+     * @throws LogicException
      */
     public function addFunction($name, $function = null)
     {

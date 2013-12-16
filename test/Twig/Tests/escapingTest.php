@@ -227,7 +227,9 @@ class Twig_Test_EscapingTest extends PHPUnit_Framework_TestCase
     /**
      * Convert a Unicode Codepoint to a literal UTF-8 character.
      *
-     * @param int Unicode codepoint in hex notation
+     * @param $codepoint
+     * @throws Exception
+     * @internal param \Unicode $int codepoint in hex notation
      * @return string UTF-8 literal string
      */
     protected function codepointToUtf8($codepoint)

@@ -119,9 +119,10 @@ class Twig_Token
     /**
      * Returns the constant representation (internal) of a given type.
      *
-     * @param integer $type  The type as an integer
+     * @param integer $type The type as an integer
      * @param Boolean $short Whether to return a short representation or not
      *
+     * @throws LogicException
      * @return string The string representation
      */
     public static function typeToString($type, $short = false)
@@ -178,6 +179,7 @@ class Twig_Token
      *
      * @param integer $type The type as an integer
      *
+     * @throws LogicException
      * @return string The string representation
      */
     public static function typeToEnglish($type)

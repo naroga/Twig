@@ -531,10 +531,11 @@ function twig_date_converter(Twig_Environment $env, $date = null, $timezone = nu
 /**
  * Rounds a number.
  *
- * @param integer|float $value     The value to round
+ * @param integer|float $value The value to round
  * @param integer|float $precision The rounding precision
- * @param string        $method    The method to use for rounding
+ * @param string $method The method to use for rounding
  *
+ * @throws Twig_Error_Runtime
  * @return integer|float The rounded number
  */
 function twig_round($value, $precision = 0, $method = 'common')
@@ -665,6 +666,7 @@ function _twig_markup2string(&$value)
  * @param array $arr1 An array
  * @param array $arr2 An array
  *
+ * @throws Twig_Error_Runtime
  * @return array The merged array
  */
 function twig_array_merge($arr1, $arr2)
@@ -909,11 +911,12 @@ function twig_in_filter($value, $compare)
 /**
  * Escapes a string.
  *
- * @param Twig_Environment $env     A Twig_Environment instance
- * @param string $string            The value to be escaped
- * @param string $strategy          The escaping strategy
- * @param string $charset           The charset
- * @param Boolean $autoescape       Whether the function is called by the auto-escaping feature (true) or by the developer (false)
+ * @param Twig_Environment $env A Twig_Environment instance
+ * @param string $string The value to be escaped
+ * @param string $strategy The escaping strategy
+ * @param string $charset The charset
+ * @param Boolean $autoescape Whether the function is called by the auto-escaping feature (true) or by the developer (false)
+ * @throws Twig_Error_Runtime
  * @return mixed|string|void
  */
 function twig_escape_filter(Twig_Environment $env, $string, $strategy = 'html', $charset = null, $autoescape = false)
@@ -1364,12 +1367,18 @@ function twig_test_iterable($value)
 /**
  * Renders a template.
  *
- * @param string|array $template       The template to render or an array of templates to try consecutively
- * @param array        $variables      The variables to pass to the template
- * @param Boolean      $with_context   Whether to pass the current context variables or not
- * @param Boolean      $ignore_missing Whether to ignore missing templates or not
- * @param Boolean      $sandboxed      Whether to sandbox the template or not
+ * @param Twig_Environment $env
+ * @param $context
+ * @param string|array $template The template to render or an array of templates to try consecutively
+ * @param array $variables The variables to pass to the template
+ * @param bool $withContext
+ * @param bool $ignoreMissing
+ * @param Boolean $sandboxed Whether to sandbox the template or not
  *
+ * @throws Exception
+ * @throws Twig_Error_Loader
+ * @internal param bool $with_context Whether to pass the current context variables or not
+ * @internal param bool $ignore_missing Whether to ignore missing templates or not
  * @return string The rendered template
  */
 function twig_include(Twig_Environment $env, $context, $template, $variables = array(), $withContext = true, $ignoreMissing = false, $sandboxed = false)
@@ -1401,6 +1410,7 @@ function twig_include(Twig_Environment $env, $context, $template, $variables = a
 /**
  * Returns a template content without rendering it.
  *
+ * @param Twig_Environment $env A Twig_Environment instance
  * @param string $name The template name
  *
  * @return string The template source
